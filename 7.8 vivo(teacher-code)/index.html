@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>vivo</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div id="container">
+		<!-- <img src="img/bg.jpg" style="visibility: hidden;"> -->
+		<div id="loading" class="pages">
+			<img src="img/loading_0.png">
+			<img src="img/loading_1.png" id="loadingWord">
+		</div><!-- 加载页面 end -->
+		<div id="page1" class="page pages">
+			<div id="wordTips">
+				<p>公元9025年</p>
+				<p>外星人为了争夺</p>
+				<p>封印在vivo手机中的神秘能量</p>
+				<p>发起宇宙战乱</p>
+				<p>超人徐峥为了保卫神秘能量</p>
+				<p>带着手机来到浩瀚宇宙中</p>
+				<p>分身成为8个自己</p>
+				<p>分别保卫8块手机碎片</p>
+				<p>消失在太阳系的八大行星中</p>
+				<p>据说找齐徐峥的8个分身</p>
+				<p>就能启动神秘能量保护地球</p>
+				<p>...</p>
+			</div>
+			<div class="planet-1"><img data-src="img/page1_0.png"></div>
+			<div class="planet-2"><img data-src="img/page1_1.png"></div>
+			<div class="planet-3"><img data-src="img/page1_2.png"></div>
+			<div class="planet-4"><img data-src="img/page1_3.png"></div>
+			<div id="superman1" class="superman">
+				<img data-src="img/page1_4.png">
+			</div>
+			<div id="superman2" class="superman">
+				<img data-src="img/page1_5.png">
+			</div>
+			
+		</div><!-- 第一屏 end -->
+		<div id="page2" class="page pages">
+			<div id="vivo">
+				<img src="img/page1_6.png" data-src="img/page1_6.png">
+				<img src="img/page1_6_1.png" data-src="img/page1_6_1.png" class="chip">
+				<img src="img/page1_6_2.png" data-src="img/page1_6_2.png" class="chip">
+				<img src="img/page1_6_3.png" data-src="img/page1_6_3.png" class="chip">
+				<img src="img/page1_6_4.png" data-src="img/page1_6_4.png" class="chip">
+				<img src="img/page1_6_5.png" data-src="img/page1_6_5.png" class="chip">
+				<img src="img/page1_6_6.png" data-src="img/page1_6_6.png" class="chip">
+				<img src="img/page1_6_7.png" data-src="img/page1_6_7.png" class="chip">
+				<img src="img/page1_6_8.png" data-src="img/page1_6_8.png" class="chip">
+
+				<!-- <img class="a-chip a-chip-1" src="img/chip_1.png">
+				<img class="a-chip a-chip-2" src="img/chip_2.png">
+				<img class="a-chip a-chip-3" src="img/chip_3.png">
+				<img class="a-chip a-chip-4" src="img/chip_4.png">
+				<img class="a-chip a-chip-5" src="img/chip_5.png">
+				<img class="a-chip a-chip-6" src="img/chip_6.png">
+				<img class="a-chip a-chip-7" src="img/chip_7.png">
+				<img class="a-chip a-chip-8" src="img/chip_8.png"> -->
+			</div>
+			<div class="star" id="star1">
+				<img data-src="img/star_1.png">
+			</div>
+			<div class="star" id="star2">
+				<img data-src="img/star_2.png">
+			</div>
+			<div class="star" id="star3">
+				<img data-src="img/star_3.png">
+			</div>
+			<div class="star" id="star4">
+				<img data-src="img/star_4.png">
+			</div>
+			<div class="star" id="star5">
+				<img data-src="img/star_5.png">
+			</div>
+			<div class="star" id="star6">
+				<img data-src="img/star_6.png">
+			</div>
+			<div class="star" id="star7">
+				<img data-src="img/star_7.png">
+			</div>
+			<div class="star" id="star8">
+				<img data-src="img/star_8.png">
+			</div>
+			<div id="nextPage">
+				<p>找齐徐峥，启动能量</p>
+				<a href="next.html" id="nextBtn">
+					<img data-src="img/up.png">
+				</a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+	<script type="text/javascript">
+	//图片预加载
+	$(function() {
+		function loading() {
+			var allImg = $(".page img");
+			var len = $(".page img").length;
+			var startNum = 0;
+
+			for(var i = 0; i < len; i++) {
+				var img = new Image();
+				img.src = allImg.eq(i).attr("data-src");
+				img.onload = function() {
+					startNum++;
+					if(startNum == len) {
+						// alert("所有的图片都加载好了")
+						allImg.each(function(index, key) {
+							$(key).attr("src",$(key).attr("data-src"));
+						})
+
+						start();
+					}
+				}
+			}
+		}
+
+		loading();
+
+		function start() {
+			$("#loading").hide();
+			$("#page1").show();
+
+			var tl = new TimelineLite();
+			tl.staggerFromTo($("#wordTips p"), 1.2, {
+				opacity:0
+			},{
+				opacity:1
+			},0.4).from($("#superman1"),1, {
+				x:300,
+				y:400,
+				onStart:function() {
+					$("#wordTips").hide();
+				},
+				onComplete:function() {
+					var i = 0;
+					var timer = setInterval(function() {
+						i++;
+						if(i%2 == 0) {
+							$("#superman1").show();
+							$("#superman2").hide();
+						}else {
+							$("#superman1").hide();
+							$("#superman2").show();
+						}
+						if(i >= 7) {
+							clearInterval(timer);
+							var tween = TweenLite.to($("#superman2"),1,{
+								x:"-100%",
+								y:"-200%",
+								onComplete:function() {
+									page2();
+								}
+							})
+						}
+					},400)
+				}
+			})
+		}
+		function page2() {
+			$("#page1").hide();
+			$("#page2").show();
+			var tl = new TimelineLite();
+			var tween = TweenMax.fromTo($("#vivo img").eq(0),1,{
+				scale:0,
+			},{
+				rotation:360,
+				opacity:1,
+				scale:1
+			})
+			tl.add(tween,0.4)
+			.to($("#vivo .chip"),2,{
+				opacity:1
+			})
+			.to($("#vivo img").eq(0),0.4,{
+				opacity:0
+			},"-=0.4")
+			.to($("#page2 .star"),1, {
+				opacity:1
+			})
+			.to($("#vivo .chip").eq(0),1,{
+				x:53,
+				y:-42
+			},"-=1")
+			.to($("#vivo .chip").eq(1),1,{
+				x:-79,
+				y:-17
+			},"-=1")
+			.to($("#vivo .chip").eq(2),1,{
+				x:-79,
+				y:-42
+			},"-=1")
+			.to($("#vivo .chip").eq(3),1,{
+				x:-30,
+				y:-58,
+				scale:0.8
+			},"-=1")
+			.to($("#vivo .chip").eq(4),1,{
+				x:-25,
+				y:23
+			},"-=1")
+			.to($("#vivo .chip").eq(5),1,{
+				x:68,
+				y:-42
+			},"-=1")
+			.to($("#vivo .chip").eq(6),1,{
+				x:-73,
+				y:19
+			},"-=1")
+			.to($("#vivo .chip").eq(7),1,{
+				x:39,
+				y:36
+			},"-=1")
+			.to($("#vivo .chip"),1,{
+				scale:0,
+				opacity:0,
+				onComplete:function() {
+					$("#nextPage").show();
+				}
+			})
+		}
+	})
+
+
+	// 回调地狱  --》Promise
+	</script>
+</body>
+</html>

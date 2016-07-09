@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>game</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			overflow: hidden;
+			-webkit-user-select: none;
+		}
+		.inner{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			background: url(img/font-bg.png) no-repeat;
+			background-size: 100% 100%;
+			margin:0 auto;
+			position: relative;
+			overflow: hidden;
+			}
+		.fonts{
+			text-align: center;
+			font-size: 1.8rem;
+			color:white;
+			padding-top: 30%;
+		}
+		.contenter{
+			position: absolute;
+			top:15%;
+			left: 25%;
+			width: 62%;
+			height: 60%;
+			max-width: 200px;
+			/*display: none;*/
+		}
+		.contenter>img{
+			width: 100%;
+			/*transform: scale(0.6,0.6,0);*/
+			/*transform: translate3d(0.6,0.6,0);*/
+			position: absolute;
+			
+		}
+		.contenter>img.active{
+			top: 0;
+			transition: all 2s linear;
+			-webkit-transform: rotate3d(0deg,0deg,0deg);
+			transform: rotate3d(0deg,0deg,0deg);
+		}
+		.contenter>img.active:nth-child(odd){
+			left: 0;
+		}
+		.contenter>img.active:nth-child(even){
+			right:0;
+		}
+		.mob1{
+			top:20%;
+			right: 300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob2{
+			top: 20%;
+			right: 300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob3{
+			top: 20%;
+			left:300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob4{
+			top: 50%;
+			right:300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob5{
+			top: 30%;
+			left: 310%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob6{
+			bottom: 20%;
+			right: 300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob7{
+			bottom: 20%;
+			left: 300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.mob8{
+			bottom: 20%;
+			right: 300%;
+			-webkit-transform: rotate3d(120deg,220deg,120deg);
+			transform: rotate3d(120deg,220deg,120deg);
+		}
+		.endPhone{
+			position: absolute;
+			top:15%;
+			left: 25%;
+			width: 62%;
+			height: 60%;
+			max-width: 200px;
+			display: none;
+		}
+		.endPhone>img{
+			width: 100%;
+			height: 100%;
+		}
+		.endPhone>p{
+			width: 100%;
+			color:white;
+			font-size: 2rem;
+			text-align: center;
+			cursor: pointer;
+			position: absolute;
+			left: 0;
+		}
+		.endPhone>.drawPrize{
+			bottom:22%;
+		}
+		.endPhone>.caption{
+			bottom:14%;
+		}
+		.notHave{
+			position:absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			z-index: 10;
+		}
+		.notHave>img{
+			width: 100%;
+			height: 100%;
+		}
+		p.getBack{
+			width: 100%;
+			text-align: center;
+			font-size: 2rem;
+			color: #58bedd;
+			position: absolute;
+			left: 0;
+			bottom:36%;
+		}
+		.getVivo{
+			position:absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			z-index: 10;
+		}
+		.getVivo>img{
+			width: 100%;
+			height: 100%;
+		}
+		form.input{
+			width:40%;
+			position: absolute;
+			left: 30%;
+			bottom:43%;
+		}
+		form.input>input{
+			width: 100%;
+			background: rgba(0,0,0,0); 
+			border:none;
+			padding: 6% 2%;
+		}
+		p.submitInfo{
+			width: 100%;
+			text-align: center;
+			font-size: 2rem;
+			color: #58bedd;
+			position: absolute;
+			left: 0;
+			bottom:34%;
+		}
+	</style>
+</head>
+<body>
+	<div class="inner">
+		<div class="fonts"></div>
+		<div class="contenter">
+			<img src="img/page1_6_1.png" alt="" class="mob1">
+			<img src="img/page1_6_2.png" alt="" class="mob2">
+			<img src="img/page1_6_3.png" alt="" class="mob3">
+			<img src="img/page1_6_4.png" alt="" class="mob4">
+			<img src="img/page1_6_5.png" alt="" class="mob5">
+			<img src="img/page1_6_6.png" alt="" class="mob6">
+			<img src="img/page1_6_7.png" alt="" class="mob7">
+			<img src="img/page1_6_8.png" alt="" class="mob8">
+		</div>
+		<div class="endPhone">
+			<img src="img/endPhone.png">
+			<p class="drawPrize">开始抽奖</p>
+			<p class="caption">游戏说明</p>
+		</div>
+		<div class="notHave">
+			<img src="img/notHave.png">
+			<p class="getBack">返回游戏</p>
+		</div>
+		<div class="getVivo">
+			<img src="img/getVivo.png">
+			<form class="input">
+				<input type="text" placeholder="姓名" id="name"></input>
+				<input type="text" placeholder="手机号" id="telephone"></input>
+			</form>
+			<p class="submitInfo">提交信息</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var str="旺德福-你已集齐徐铮分身-vivo X5pro碎片开始合体-合体中-..."
+		var strArr=str.split("-");
+		var f=0;
+		var timer=setInterval(function(){
+			$(".fonts").get(0).innerHTML+=strArr[f]+"<br>";
+			f++;
+			if(f>=strArr.length){
+				clearInterval(timer);
+				$(".fonts").fadeOut(1000);
+			}
+		},600)
+		setTimeout(function(){
+			for(var i=0,len=$(".contenter>img").length;i<len;i++){
+				$(".contenter>img").eq(i).addClass("active");
+			}
+		},5000)
+		setTimeout(function(){
+			$(".contenter").fadeOut(300);
+			$(".endPhone").fadeIn(600);
+		},7000)
+		function rand(min,max){
+			return parseInt(Math.random()*(max-min)+1);
+		}
+		var prizeArr=[".notHave",".getVivo"]
+		$(".drawPrize").click(function(){
+			var random=Math.random();
+			if(random<0.9){
+				$(prizeArr[0]).fadeIn(1000);
+			}else if(random>0.9&&random<1){
+				$(prizeArr[1]).fadeIn(1000);
+			}
+		})
+		$(".getBack").on("click",function(){
+			location.href="gameStart.html";
+		})
+		$(".submitInfo").on("click",function(){
+			if($("input").val()!=""){
+				location.href="gameStart.html";
+			}
+		})
+	</script>
+</body>
+</html>

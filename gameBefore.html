@@ -1,0 +1,618 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找徐峥</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			overflow: hidden;
+			-webkit-user-select: none;
+		}
+		.wrap{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			margin:0 auto;
+			position: relative;
+		}
+		.part1{
+			/*display: none;*/
+		}
+		.part1>img:nth-child(1){
+			width: 100%;
+			position: absolute;
+			top: 10%;
+			left: 0;
+		}
+		.part1>.fonts{
+			width: 60%;
+			max-width: 390px;
+			position: absolute;
+			top: 20%;
+			left: 20%;
+			-webkit-animation: rotateFonts 10s 0s linear infinite;
+			animation: rotateFonts 10s 0s linear infinite;
+		}
+		@-webkit-keyframes rotateFonts{
+			0%{ -webkit-transform: rotateZ(360deg);
+				transform: rotateZ(360deg);
+			}
+			100%{
+				-webkit-transform: rotateZ(0deg);
+				transform: rotateZ(0deg);
+			}
+		}
+		@keyframes rotateFonts{
+			0%{ -webkit-transform: rotateZ(360deg);
+				transform: rotateZ(360deg);
+			}
+			100%{
+				-webkit-transform: rotateZ(0deg);
+				transform: rotateZ(0deg);
+			}
+		}
+		.part2{
+			display: none;
+		}
+		.part2>img:nth-child(1){
+			width: 100%;
+			height: 100%;
+		}
+		.inner{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		.inner>img{
+			position: absolute;
+		}
+		.inner>.font-star{
+			top:10%;
+			left: 12%;
+			width: 14%;
+			/*-webkit-animation: star-updown 3s 0s linear infinite;
+			animation: star-updown 3s 0s linear infinite;*/
+		}
+		.inner>.font-star2{
+			bottom:10%;
+			right: 10%;
+			width: 8%;
+			-webkit-animation: ball-updown 3s 0s linear infinite;
+			animation: ball-updown 3s 0s linear infinite;
+		}
+		.inner>.font-ball1{
+			top:10%;
+			right:12%;
+			width: 14%;
+			-webkit-animation: star-updown 3s 0s linear infinite;
+			animation: star-updown 3s 0s linear infinite;
+		}
+		.inner>.font-ball6{
+			bottom:10%;
+			left: -20%;
+			width: 12%;
+		}
+		.inner>.xz-phone{
+			bottom:10%;
+			left:110%;
+			width: 86%;
+			/*display: none;*/
+		}
+		.part2>.innerFonts{
+			width: 100%;
+			height: 80%;
+			position: absolute;
+			top:20%;
+			font-size: 2rem;
+			text-align: center;
+			color:white;
+			/*background-color: rgba(0,0,0,0);*/
+		}
+		@-webkit-keyframes star-updown{
+			50%{
+				top:12%;
+			}
+			100%{
+				top:10%;
+			}
+		}
+		@keyframes star-updown{
+			50%{
+				top:12%;
+			}
+			100%{
+				top:10%;
+			}
+		}
+		@keyframes star-updown2{
+			50%{
+				top:32%;
+			}
+			100%{
+				top:30%;
+			}
+		}
+		@-webkit-keyframes ball-updown{
+			50%{
+				bottom:12%;
+			}
+			100%{
+				bottom:10%;
+			}
+		}
+		@keyframes ball-updown{
+			50%{
+				bottom:12%;
+			}
+			100%{
+				bottom:10%;
+			}
+		}
+		.vivo{
+			width: 50%;
+			height: 60%;
+			max-width: 200px;
+			position: absolute;
+			top:15%;
+			left: 25%;
+			opacity: 0;
+			-webkit-transform: rotateZ(0deg);
+			transform: rotateZ(0deg);
+		}
+		@keyframes vivoRotateScale{
+			0%{
+				opacity: 1;
+				top:50%;
+				left: 50%;
+				width: 0%;
+				height: 0%;
+			}
+			100%{
+				width: 50%;
+				height: 60%;
+				opacity: 1;
+				top:15%;
+				left: 25%;
+				-webkit-transform: rotateZ(360deg);
+				transform: rotateZ(360deg);
+				opacity: 1;
+			}
+		}
+		.phone-8{
+			position: absolute;
+			top:15%;
+			left: 25%;
+			width: 50%;
+			height: 60%;
+			max-width: 200px;
+			opacity: 0;
+		}
+		.contenter{
+			position: absolute;
+			top:15%;
+			left: 25%;
+			width: 50%;
+			height: 60%;
+			max-width: 200px;
+			display: none;
+		}
+		.contenter>img{
+			width: 68%;
+			position: absolute;
+		}
+		.mob1{
+			bottom: 0;
+			right: 0;
+		}
+		.mob2{
+			bottom: 0;
+			left: 0;
+		}
+		.mob3{
+			top: 21.5%;
+			right: 10.5%;
+		}
+		.mob4{
+			top: 22.5%;
+			left:0;
+		}
+		.mob5{
+			top: 40.5%;
+			right: 0;
+		}
+		.mob6{
+			top: 15.5%;
+			right: 0;
+		}
+		.mob7{
+			top: 0;
+			left: 0;
+		}
+		.mob8{
+			top: 0;
+			right: 0;
+		}
+		.part3-vivo{
+			width: 50%;
+			height: 60%;
+			position: absolute;
+			top:15%;
+			left: 25%;
+		}
+		.ball-group{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+		}
+		.ball-group>img{
+			position: absolute;
+		}
+		.ball1{
+			top: 33%;
+			left: 10%;
+		}
+		.ball2{
+			top: 28%;
+			left: 43%;
+		}
+		.ball3{
+			top: 30%;
+			right: 14%;
+		}
+		.ball4{
+			top: 37%;
+			right:41%;
+		}
+		.ball5{
+			top: 44%;
+			right: 9%;
+		}
+		.ball6{
+			top: 55%;
+			left: 14%;
+		}
+		.ball7{
+			top: 68%;
+			left: 40%;
+		}
+		.ball8{
+			top: 60%;
+			right: 12%;
+		}
+		.frgment-group{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+		}
+		.frgment-group>img{
+			width: 30%;
+			position: absolute;
+			transform: scale3d(0.6,0.6,1);
+			-webkit-transition: top,left 1s linear;
+			transition: top,left 1s linear;
+		}
+		.frgment-group>img:nth-child(odd){
+			top:35%;
+			right: 44%;
+		}
+		.frgment-group>img:nth-child(even){
+			top:25%;
+			right: 40%;
+		}
+		.frgment-group>img.active.frgment1{
+			top:20%;
+			right:50%;
+		}
+		.frgment-group>img.active.frgment2{
+			top:22%;
+			right: 15%;
+		}
+		.frgment-group>img.active.frgment3{
+			top: 34%;
+			left: 11%;
+		}
+		.frgment-group>img.active.frgment4{
+			top: 43%;
+			left: 21%;
+		}
+		.frgment-group>img.active.frgment5{
+			top: 30%;
+			right: 18%;
+		}
+		.frgment-group>img.active.frgment6{
+			top: 32%;
+			right: 41%;
+		}
+		.frgment-group>img.active.frgment7{
+			top: 60%;
+			left:42%;
+		}
+		.frgment-group>img.active.frgment8{
+			top: 55%;
+			right: 20%;
+		}
+		.footer{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+		.footer>p{
+			color:rgba(255,255,255,1);
+			font-size: 1.2rem;
+			text-align: center;
+			animation: colorChange 3s 0s ease infinite;
+		}
+		.footer>div{
+			width: 20px;
+			height: 20px;
+			border-left: 2px solid rgba(255,255,255,1);
+			border-top: 2px solid rgba(255,255,255,1);
+			transform: rotateZ(45deg);
+			margin:10px auto;
+			animation: colorChange 3s 0s ease infinite;
+		}
+		@keyframes colorChange{
+			90%{
+				color:rgba(255,255,255,0);
+				border-color: rgba(255,255,255,0);
+			}
+
+		}
+		@keyframes moveBall{
+			0%{
+				-webkit-transform: translate3d(2px,0px,0);
+				transform: translate3d(2px,0px,0);
+			}
+			10%{
+				-webkit-transform: translate3d(0,3px,0);
+				transform: translate3d(0,3px,0);
+			}
+			30%{
+				-webkit-transform: :translate3d(5px,0,0);
+				transform: :translate3d(5px,0,0);
+			}
+			60%{
+				-webkit-transform: translate3d(-2px,2px,0);
+				transform: translate3d(-2px,2px,0);
+			}
+			80%{
+				-webkit-transform: translate3d(0,-5px,0);
+				transform: translate3d(0,-5px,0);
+			}
+			100%{
+				-webkit-transform: translate3d(2px,1px,0);
+				transform: translate3d(2px,1px,0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap part1">
+		<img data-src="img/page1_bg.png">
+		<img data-src="img/fonts.png" class="fonts">
+	</div>
+	<div class="wrap part2">
+		<img data-src="img/font-bg.png">
+		<div class="inner">
+			<img data-src="img/font-star.png" class="font-star">
+			<img data-src="img/font-ball1.png" class="font-ball1">
+			<img data-src="img/font-star2.png" class="font-star2">
+			<img data-src="img/font-ball6.png" class="font-ball6">
+			<img data-src="img/xz-phone1.png" class="xz-phone">
+		</div>
+		<div class="innerFonts"></div>
+		<img data-src="img/vivo1.png" class="vivo">
+		<img data-src="img/phone-8.png" class="phone-8">
+		<div class="contenter">
+			<img data-src="img/mob1.png" alt="" class="mob1">
+			<img data-src="img/mob2.png" alt="" class="mob2">
+			<img data-src="img/mob3.png" alt="" class="mob3">
+			<img data-src="img/mob4.png" alt="" class="mob4">
+			<img data-src="img/mob5.png" alt="" class="mob5">
+			<img data-src="img/mob6.png" alt="" class="mob6">
+			<img data-src="img/mob7.png" alt="" class="mob7">
+			<img data-src="img/mob8.png" alt="" class="mob8">
+		</div>
+		<div class="ball-group">
+			<img data-src="img/page_start0.png" alt="" class="ball1">
+			<img data-src="img/page_start1.png" alt="" class="ball2">
+			<img data-src="img/page_start2.png" alt="" class="ball3">
+			<img data-src="img/page_start3.png" alt="" class="ball4">
+			<img data-src="img/page_start4.png" alt="" class="ball5">
+			<img data-src="img/page_start5.png" alt="" class="ball6">
+			<img data-src="img/page_start6.png" alt="" class="ball7">
+			<img data-src="img/page_start7.png" alt="" class="ball8">
+		</div>
+		<div class="frgment-group">
+			<img data-src="img/fpage_ragement0.png" alt="" class="frgment1">
+			<img data-src="img/fpage_ragement1.png" alt="" class="frgment2">
+			<img data-src="img/fpage_ragement2.png" alt="" class="frgment3">
+			<img data-src="img/fpage_ragement3.png" alt="" class="frgment4">
+			<img data-src="img/fpage_ragement4.png" alt="" class="frgment5">
+			<img data-src="img/fpage_ragement5.png" alt="" class="frgment6">
+			<img data-src="img/fpage_ragement6.png" alt="" class="frgment7">
+			<img data-src="img/fpage_ragement7.png" alt="" class="frgment8">
+		</div>
+		<div class="footer">
+			<p>找齐徐峥，启动能量</p>
+			<div class="angle"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//图片预加载：
+			function loadingBefore(){
+				var allImgBefore=$(".part1 img");
+				var lenBefore=$(".part1 img").length;
+				var startNumBefore=0;
+				for(var b=0;b<lenBefore;b++){
+					var image=new Image();
+					image.src=allImgBefore.eq(b).attr("data-src");
+					image.onload=function(){
+						startNumBefore++;
+						if(startNumBefore==lenBefore){
+							allImgBefore.each(function(index,key){
+								$(key).attr("src",$(key).attr("data-src"));
+							})
+							loading();// 第一个页面的图片预加载完毕，再执行第二个页面的图片的加载
+						}
+					}
+				}
+			}
+			loadingBefore();
+			//图片预加载：
+			function loading(){
+				var allImg=$(".part2 img");
+				var len=$(".part2 img").length;
+				var startNum=0;
+				for(var i=0;i<len;i++){
+					var img=new Image();
+					img.src=allImg.eq(i).attr("data-src");
+					img.onload=function(){
+						startNum++;
+						if(startNum==len){
+							allImg.each(function(index,key){
+								$(key).attr("src",$(key).attr("data-src"));
+							})
+							before();//图片预加载完毕，执行的函数
+						}
+					}
+				}
+			}
+			function before(){
+				$(".part1").hide();
+				$(".part2").show();
+				var gameFlag=false;
+				var part1=$(".wrap").eq(0).get(0);
+				var inner=$(".inner").get(0);
+				var innerFonts=$(".innerFonts").get(0);
+				var fontStr="公元9025年 外星人为了争夺 封印在vivo手机中的神秘能量 发起宇宙战乱 超人徐峥为了保卫神秘能量 带着手机来到浩瀚宇宙中 分身成为8个自己 分别保卫8块手机碎片 消失在太阳系的八大行星中 据说找齐徐峥的8个分身 就能启动神秘能量保护地球 ...";
+				var fontArry=fontStr.split(" ");
+				var font={i:0,len:fontArry.length};
+				var timer1=setInterval(function(){
+					innerFonts.innerHTML+=fontArry[font.i]+"<br>";
+					font.i++;
+					if(font.i==font.len){
+						clearInterval(timer1);
+						$(".innerFonts").fadeOut(2000);
+						$(".font-star").delay(2000).animate({
+							left: "70%",
+							top:"30%",
+						},1000,"linear",function(){
+							$(".font-star").css({
+								"-webkit-animation": "star-updown2 3s 0s linear infinite",
+								"animation": "star-updown2 3s 0s linear infinite",
+							})
+						})
+						$(".font-ball6").delay(2000).animate({
+							// display:"inline-block",
+							left:"20%",
+						},1000,"linear",function(){
+
+						})
+						$(".xz-phone").delay(2000).animate({
+							bottom:"42%",
+							left:"10%",
+						},1000,"linear",function(){
+							var i=0;
+							var timer2=setInterval(function(){
+								i++;
+								if(i%2==1){
+									$(".xz-phone").attr("src","img/xz-phone1.png")
+								}else{
+									$(".xz-phone").attr("src","img/xz-phone2.png")
+								}
+								if(i==6){
+									clearInterval(timer2);
+									xzFlayOver();  //执行徐峥飞出画面的函数
+									
+								}
+							},360)
+						})
+					}
+				},500)
+				 
+				function xzFlayOver(){
+					$(".xz-phone").animate({
+						bottom:"70%",
+						left:"-100%",
+						//徐峥飞出了画面后，执行的函数：
+					},1000,"linear",function(){
+						
+						$(".vivo").css({
+							"opacity":"1",
+							"-webkit-animation": "vivoRotateScale 2s 0s linear 1",
+							"animation": "vivoRotateScale 2s 0s linear 1",
+						})
+						setTimeout(function(){
+							$(".inner").hide();
+							$(".phone-8").animate({
+								opacity:1,
+							},2000,"linear",function(){
+								setTimeout(function(){
+									$(".vivo").fadeOut(1000);
+									$(".phone-8").fadeOut(1000);
+									$(".frgment-group").fadeIn(1000);
+									setTimeout(function(){
+										for(var a=0;a<$(".frgment-group>img").length;a++){
+											$(".frgment-group>img").eq(a).addClass("active");//给每个碎片添加active类名，改变其top和left的值，触发transition过渡
+										}		
+									},300)
+									$(".ball-group").fadeIn(1000);
+									frgmentMove();//vivo手机屏裂后，手机碎片散开飞入星球的函数	
+									
+								},1000)
+							})
+						},3000)
+					})
+				}
+				function frgmentMove(){
+					var topArr=[];
+					for(var i=0;i<$(".frgment-group>img").length;i++){
+						topArr[i]=$(".frgment-group>img").eq(i).offset().top;
+						$(".frgment-group>img").eq(i).delay(3000).animate({
+							width:0,
+							height:0,
+							top:topArr[i]+50,
+						},3000,"linear")
+					}
+					
+					for(var j=0;j<$(".ball-group>img").length;j++){
+						$(".ball-group>img").eq(j).css({
+							"webkitAnimation": "moveBall 3s "+j*(-0.4)+"s linear infinite alternate",
+							"animation": "moveBall 3s "+j*(-0.4)+"s linear infinite alternate",
+						})
+					}
+					setTimeout(function(){
+						gameFlag=true;
+					},5000)
+				}
+				$(".footer").click(function(){
+					if(gameFlag){
+						location.href="gameStart.html"
+					}
+				})
+			}
+		})
+
+		
+	</script>
+</body>
+</html>

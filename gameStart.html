@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>game</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			overflow: hidden;
+			-webkit-user-select: none;
+		}
+		.wrap{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			background: url(img/gameBg.png) no-repeat;
+			background-size: 100% 100%;
+			margin:0 auto;
+			position: relative;
+			display: none;
+			overflow: hidden;
+		}
+		.wrap>img{
+			position: absolute;
+		}
+		img.first{
+			width: 37%;
+			top:6.8%;
+			left: 30%
+		}
+		img.first-ball22{
+			width: 13.28%;
+			top:4.2%;
+			right:11.6%;
+			animation: rotateBall 3s 0s linear infinite;
+		}
+		img.first-ball44{
+			width: 12.6%;
+			bottom:8%;
+			left:6.2%;
+			animation: rotateBall 3s 0s linear infinite;
+		}
+		@keyframes updown{
+			50%{
+				transform: translateY(-16px);
+			}
+			100%{
+				transform: translateY(0px);
+			}
+		}
+		@-webkit-keyframes fly-rocket{
+			79%{
+				bottom:60%;
+				left:130%;
+				opacity: 1;
+			}
+			80%{
+				bottom:60%;
+				left:130%;
+				opacity: 0;
+			}
+			81%{
+				bottom:-30%;
+				left:-30%;
+				opacity: 0;
+			}
+			100%{
+				bottom:8%;
+				left:6.2%;
+				opacity: 1;
+			}
+		}
+		@keyframes fly-rocket{
+			79%{
+				bottom:60%;
+				left:130%;
+				opacity: 1;
+			}
+			80%{
+				bottom:60%;
+				left:130%;
+				opacity: 0;
+			}
+			81%{
+				bottom:-30%;
+				left:-30%;
+				opacity: 0;
+			}
+			100%{
+				bottom:8%;
+				left:6.2%;
+				opacity: 1;
+			}
+		}
+		img.first-ball33{
+			width: 10%;
+			bottom:4.2%;
+			right:5.62%;
+			animation: rotateBall 3s 0s linear infinite;
+		}
+		@keyframes rotateBall{
+			0%{
+				transform: rotateZ(0);
+			}
+			100%{
+				transform: rotateZ(360deg);
+			}
+		}
+		.game-interface{
+			width: 88%;
+			height: 53%;
+			/*background-color: red;*/
+			position: absolute;
+			top:23%;
+			left: 6%;
+			z-index: 5;
+		}
+		.game-interface>img{
+			box-sizing: border-box;
+			padding: 1%;
+
+		}
+		p.time{
+			position: absolute;
+			top:15.6%;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 2.8rem;
+			color:red;
+		}
+		div.mask-first{
+			position:absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.9);
+			display: none;
+			z-index: 10;
+		}
+		div.tips-first{
+			width: 88%;
+			height: 53%;
+			position: absolute;
+			top:23%;
+			left: 6%;
+		}
+		div.tips-first>img{
+			width: 100%;
+			height: 100%;
+		}
+		.inner{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			background: url(img/font-bg.png) no-repeat;
+			background-size: 100% 100%;
+			margin:0 auto;
+			position: relative;
+			display: none;
+			overflow: hidden;
+			}
+		.fonts{
+			text-align: center;
+			font-size: 1.6rem;
+			color:white;
+			padding-top: 10%;
+		}
+		.timeOut{
+			position:absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+			z-index: 10;
+		}
+		.timeOut>img{
+			width: 100%;
+			height: 100%;
+		}
+		.timeOut>p{
+			width: 100%;
+			text-align: center;
+			font-size: 2rem;
+			color: #58bedd;
+			position: absolute;
+			left: 0;
+		}
+		p.again{
+			bottom:39%;
+		}
+		p.caption{
+			bottom: 33%;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<img src="img/firstFont.png" class="first">
+		<img src="img/first-ball22.png" class="first-ball22">
+		<img src="img/first-ball44.png" class="first-ball44">
+		<img src="img/first-ball33.png" class="first-ball33">
+		<p class="time">66:66</p>
+		<div class="game-interface"></div>
+		<div class="mask-first">
+			<div class="tips-first">
+				<img src="img/tipsFirst.png" class="tips">
+			</div>
+		</div>
+	</div>
+	<div class="inner">
+		<div class="fonts"></div>
+	</div>
+	<div class="timeOut">
+		<img src="img/timeOut.png">
+		<p class="again">再试一次</p>
+		<p class="caption">游戏说明</p>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+			var count=1;
+			var imgSrc=["img/xuBg.png","img/baoBg.png","img/tietou.png"];
+			function rand(min,max){
+				return parseInt(Math.random()*(max-min));
+			}
+			var imgArr=["img/tipsFirst.png","img/tipsTwo.png","img/tipsThree.png","img/tipsFour.png","img/tipsFive.png","img/tipsSix.png","img/tipsSeven.png","img/tipsEight.png"]
+			function next(){
+				$(".wrap").slideDown(2000);
+				$(".game-interface").get(0).innerHTML="";
+				count++;
+				if(count-1==2){
+					$(".first").attr("src","img/fontTwo.png");
+					$(".first-ball22").attr("src","img/three-ball1.png");
+					$(".first-ball33").attr("src","img/two-ball3.png");
+					$(".first-ball44").css({
+						"animation":"fly-rocket 3s 0s infinite",
+						"webkitAnimation":"fly-rocket 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/three-ball2.png");
+				}
+				if(count-1==3){
+					$(".first").attr("src","img/fontThree.png");
+					$(".first-ball22").attr("src","img/two-ball1.png");
+					$(".first-ball33").attr("src","img/two-ball3.png");
+					$(".first-ball44").css({
+						"animation":"fly-rocket 3s 0s infinite",
+						"webkitAnimation":"fly-rocket 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/two-ball2.png");
+				}
+				if(count-1==4){
+					$(".first").attr("src","img/font-four.png");
+					$(".first-ball22").attr("src","img/four-ball1.png");
+					$(".first-ball33").attr("src","img/four-ball3.png");
+				}
+				if(count-1==5){
+					$(".first").attr("src","img/font-five.png");
+					$(".first-ball22").attr("src","img/five-ball1.png");
+					$(".first-ball22").css({
+						"animation-play-state":"paused",//让动画停止
+					})
+					$(".first-ball33").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball33").attr("src","img/five-ball2.png");
+					$(".first-ball44").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/five-ball3.png");
+				}
+				if(count-1==6){
+					$(".first").attr("src","img/font-fix.png");
+					$(".first-ball22").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball22").attr("src","img/fix-ball1.png");
+					$(".first-ball33").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball33").attr("src","img/fix-ball2.png");
+					$(".first-ball44").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/fix-ball3.png");
+				}
+				if(count-1==7){
+					$(".first").attr("src","img/font-seven.png");
+					$(".first-ball22").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball22").attr("src","img/seven-ball1.png");
+					$(".first-ball33").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball33").attr("src","img/seven-ball2.png");
+					$(".first-ball44").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/seven-ball3.png");
+				}
+				if(count-1==8){
+					$(".first").attr("src","img/font-eight.png");
+					$(".first-ball22").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball22").attr("src","img/eight-ball1.png");
+					$(".first-ball33").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball33").attr("src","img/eight-ball2.png");
+					$(".first-ball44").css({
+						"animation":"updown 3s 0s infinite",
+						"webkitAnimation":"updown 3s 0s infinite",
+					})
+					$(".first-ball44").attr("src","img/eight-ball3.png");
+				}
+				var num=count*count;
+				if(count-1>=5){
+					num=(count-1)*(count-1);
+				}
+				if(count-1>=7){
+					num=(count-2)*(count-2);
+				}
+				var numArr=[];
+				var number=0;
+				if(count-1==5){
+					numArr=[];
+					for(var i=0;i<4;i++){
+						number=rand(0,num);
+						if(numArr.indexOf(number)>-1){
+							number=rand(0,num);
+						}else{
+							numArr[i]=number;
+						}
+					}
+				}
+				if(count-1==7){
+					numArr=[];
+					for(var i=0;i<5;i++){
+						number=rand(0,num);
+						while(numArr.indexOf(number)>-1){
+							number=rand(0,num);
+						}
+						numArr[i]=number;
+					}
+				}
+				var randNum=rand(0,num);
+				while(numArr.indexOf(randNum)>-1){
+					randNum=rand(0,num);
+				}
+				for(var i=0;i<num;i++){
+					var img=new Image();
+					img.src=imgSrc[1];
+					for(var j=0;j<numArr.length;j++){
+						if(i==numArr[j]){
+							img.src=imgSrc[2];
+						}
+					}
+					if(i==randNum){
+						img.src=imgSrc[0];
+						selectedImf=img;
+						img.onclick=function(){
+							$(".tips").attr("src",imgArr[count-2]);
+							$(".mask-first").show();
+							setTimeout(function(){
+								$(".mask-first").hide();
+								if(count-1<8){
+									next();
+									countTime();
+								}else{
+									$(".wrap").fadeOut(1000);
+									$(".inner").fadeIn(1000);
+									setTimeout(function(){
+										location.href="gameAfter.html"
+									},1000)
+									
+								}
+							},1000)
+						}
+					}
+					// img.click();//注意删掉
+					img.style.width=1/parseInt(Math.sqrt(num))*100+"%";
+					img.style.height=1/parseInt(Math.sqrt(num))*100+"%";
+					$(".game-interface").get(0).appendChild(img);
+				}
+			}
+			var timer=0;
+			var timeAll=50;
+			//倒计时函数：
+			function countTime(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					timeAll-=0.01;
+					timeAll=timeAll.toFixed(2);
+					$(".time").get(0).innerHTML=timeAll;
+					if(timeAll<=0){
+						$(".timeOut").fadeIn(1000);
+						clearInterval(timer);
+						slectedImg.onclick=null;
+					}
+				},10)
+			}
+		next();
+		countTime();
+		$(".again").on("click",function(){
+			location.href="gameStart.html";
+		})
+
+	</script>
+	
+</body>
+</html>

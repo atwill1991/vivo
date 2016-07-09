@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		
+#box { 
+width:100px; 
+height:100px; 
+position:absolute; 
+top:100px; 
+left:100px; 
+text-indent: 90px; 
+background-color:red; 
+} 		
+		.wrap{
+			width: 30px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="wrap"></div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$('#box').animate({ textIndent: 0 }, { 
+		step: function(now,fx) { 
+			$(this).css('-webkit-transform','rotate('+now+'deg)'); 
+			}, 
+			duration:'slow' 
+		},'linear'); 
+		$(".wrap").animate({
+			"rotate":"60deg",
+		})
+		var count=6;
+		var number=0;
+		var num=count*count;
+		var numArr=[];
+		function rand(min,max){
+				return parseInt(Math.random()*(max-min));
+			}
+		if(count-1==5){
+					numArr=[];
+					for(var i=0;i<4;i++){
+						number=rand(0,num);
+						if(numArr.indexOf(number)>-1){
+							number=rand(0,num);
+						}else{
+							numArr[i]=number;
+						}
+					}
+				}
+	</script>
+</body>
+</html>
